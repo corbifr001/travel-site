@@ -5,6 +5,7 @@ class Modal {
         this.openModalButton = $(".open-modal");
         this.modal = $(".modal");
         this.closeModalButton = $(".modal__close");
+        console.log(this.closeModalButton);
         this.events();
     }
 
@@ -15,9 +16,15 @@ class Modal {
         //clicking the X close modal button
         this.closeModalButton.click(this.closeModal.bind(this));
 
-        // push escape key
+        // push any key
+        $(document).keyup(this.keyPressandler.bind(this));
 
+    }
 
+    keyPressandler(e) {
+        if (e.keyCode == 27) {
+            this.closeModal();
+        }
     }
 
     openModal() {
@@ -26,7 +33,7 @@ class Modal {
     }
 
     closeModal() {
-        this.modal.removeClass('modal--is-visble');
+        this.modal.removeClass('modal--is-visible');
     }
 }
 

@@ -11734,6 +11734,7 @@ var Modal = function () {
         this.openModalButton = (0, _jquery2.default)(".open-modal");
         this.modal = (0, _jquery2.default)(".modal");
         this.closeModalButton = (0, _jquery2.default)(".modal__close");
+        console.log(this.closeModalButton);
         this.events();
     }
 
@@ -11746,8 +11747,15 @@ var Modal = function () {
             //clicking the X close modal button
             this.closeModalButton.click(this.closeModal.bind(this));
 
-            // push escape key
-
+            // push any key
+            (0, _jquery2.default)(document).keyup(this.keyPressandler.bind(this));
+        }
+    }, {
+        key: "keyPressandler",
+        value: function keyPressandler(e) {
+            if (e.keyCode == 27) {
+                this.closeModal();
+            }
         }
     }, {
         key: "openModal",
@@ -11758,7 +11766,7 @@ var Modal = function () {
     }, {
         key: "closeModal",
         value: function closeModal() {
-            this.modal.removeClass('modal--is-visble');
+            this.modal.removeClass('modal--is-visible');
         }
     }]);
 
