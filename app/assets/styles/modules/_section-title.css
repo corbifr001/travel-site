@@ -14,6 +14,10 @@
 	&__blue {
 		color: $mainBlue;
 	}
+
+	&--margin {
+		margin-bottom: 1.3rem;
+	}
 	
 	&__icon {		
 		display: block;
